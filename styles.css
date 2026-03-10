@@ -6,24 +6,26 @@
 }
 
 :root {
-    /* Colors - inspired by tensure.io */
-    --color-primary: #2563eb;
-    --color-blue: #60aef9;
-    --color-purple: #a78bfa;
-    --color-yellow: #fbbf24;
-    --color-pink: #e75da1;
-    --color-green: #34d399;
-    --color-dark: #0a0e27;
-    --color-dark-alt: #1a1a2e;
-    --color-light: #f8fafc;
+    /* Colors - Olive Green Palette */
+    --color-primary: #6B7F39;
+    --color-olive: #6B7F39;
+    --color-olive-light: #8B9D5A;
+    --color-olive-dark: #4A5D23;
+    --color-sage: #A3B18A;
+    --color-moss: #5F7A3E;
+    --color-earth: #8B7355;
+    --color-clay: #A0826D;
+    --color-dark: #2C3018;
+    --color-dark-alt: #3A4428;
+    --color-light: #F5F5ED;
     --color-white: #ffffff;
-    --color-text: #1a1a2e;
-    --color-text-light: #64748b;
-    --color-border: #e2e8f0;
+    --color-text: #2C3018;
+    --color-text-light: #6B7566;
+    --color-border: #D4D9C8;
 
     /* Gradients */
-    --gradient-dark: linear-gradient(165deg, #0a0e27 0%, #121a3a 40%, #0d1430 100%);
-    --gradient-warm: linear-gradient(135deg, #f4efe7 0%, #fef3e2 100%);
+    --gradient-dark: linear-gradient(165deg, #2C3018 0%, #3A4428 40%, #2F3820 100%);
+    --gradient-warm: linear-gradient(135deg, #F5F5ED 0%, #EAE8DC 100%);
 
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -152,9 +154,9 @@ body {
 }
 
 .btn-primary:hover {
-    background: #1d4ed8;
+    background: #4A5D23;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 12px rgba(107, 127, 57, 0.3);
 }
 
 .btn-primary-large {
@@ -165,9 +167,9 @@ body {
 }
 
 .btn-primary-large:hover {
-    background: #1d4ed8;
+    background: #4A5D23;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 6px 20px rgba(107, 127, 57, 0.3);
 }
 
 .btn-secondary {
@@ -193,7 +195,7 @@ body {
 }
 
 .btn-contact:hover {
-    background: #1d4ed8;
+    background: #4A5D23;
     transform: translateY(-2px);
 }
 
@@ -212,7 +214,7 @@ body {
     right: -100px;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(96, 174, 249, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(107, 127, 57, 0.12) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -355,39 +357,39 @@ section {
 }
 
 .card-blue {
-    background: linear-gradient(135deg, rgba(96, 174, 249, 0.08) 0%, rgba(96, 174, 249, 0.03) 100%);
-    border-color: rgba(96, 174, 249, 0.2);
+    background: linear-gradient(135deg, rgba(107, 127, 57, 0.1) 0%, rgba(107, 127, 57, 0.04) 100%);
+    border-color: rgba(107, 127, 57, 0.25);
 }
 
 .card-blue h3 {
-    color: var(--color-blue);
+    color: var(--color-olive);
 }
 
 .card-purple {
-    background: linear-gradient(135deg, rgba(167, 139, 250, 0.08) 0%, rgba(167, 139, 250, 0.03) 100%);
-    border-color: rgba(167, 139, 250, 0.2);
+    background: linear-gradient(135deg, rgba(163, 177, 138, 0.12) 0%, rgba(163, 177, 138, 0.05) 100%);
+    border-color: rgba(163, 177, 138, 0.3);
 }
 
 .card-purple h3 {
-    color: var(--color-purple);
+    color: var(--color-sage);
 }
 
 .card-yellow {
-    background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(251, 191, 36, 0.03) 100%);
-    border-color: rgba(251, 191, 36, 0.2);
+    background: linear-gradient(135deg, rgba(95, 122, 62, 0.1) 0%, rgba(95, 122, 62, 0.04) 100%);
+    border-color: rgba(95, 122, 62, 0.25);
 }
 
 .card-yellow h3 {
-    color: var(--color-yellow);
+    color: var(--color-moss);
 }
 
 .card-pink {
-    background: linear-gradient(135deg, rgba(231, 93, 161, 0.08) 0%, rgba(231, 93, 161, 0.03) 100%);
-    border-color: rgba(231, 93, 161, 0.2);
+    background: linear-gradient(135deg, rgba(139, 115, 85, 0.1) 0%, rgba(139, 115, 85, 0.04) 100%);
+    border-color: rgba(139, 115, 85, 0.25);
 }
 
 .card-pink h3 {
-    color: var(--color-pink);
+    color: var(--color-earth);
 }
 
 /* Problem/Solution Section */
@@ -427,8 +429,8 @@ section {
 }
 
 .solution-card {
-    background: rgba(96, 174, 249, 0.08);
-    border: 1px solid rgba(96, 174, 249, 0.15);
+    background: rgba(107, 127, 57, 0.1);
+    border: 1px solid rgba(107, 127, 57, 0.2);
 }
 
 .solution-card h4 {
@@ -451,7 +453,7 @@ section {
 }
 
 .how-it-works .section-tag {
-    color: var(--color-blue);
+    color: var(--color-sage);
 }
 
 .how-it-works h2 {
@@ -459,7 +461,7 @@ section {
 }
 
 .how-it-works h2 em {
-    color: var(--color-blue);
+    color: var(--color-sage);
 }
 
 .process-steps {
@@ -486,7 +488,7 @@ section {
     font-family: var(--font-display);
     font-size: 3rem;
     font-weight: 700;
-    color: rgba(96, 174, 249, 0.2);
+    color: rgba(163, 177, 138, 0.25);
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
@@ -559,8 +561,8 @@ section {
 }
 
 .intelligence-proof {
-    background: linear-gradient(135deg, rgba(96, 174, 249, 0.1) 0%, rgba(167, 139, 250, 0.08) 100%);
-    border: 1px solid rgba(96, 174, 249, 0.2);
+    background: linear-gradient(135deg, rgba(107, 127, 57, 0.12) 0%, rgba(163, 177, 138, 0.1) 100%);
+    border: 1px solid rgba(107, 127, 57, 0.25);
     padding: 2.5rem;
     border-radius: var(--border-radius-lg);
 }
@@ -569,7 +571,7 @@ section {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--color-purple);
+    color: var(--color-olive-dark);
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -629,16 +631,16 @@ section {
 }
 
 .market-card.highlight {
-    background: #eff6ff;
-    border-color: #bfdbfe;
+    background: #F0F2EB;
+    border-color: #C5CCAE;
 }
 
 .market-card.highlight h4 {
-    color: #1e40af;
+    color: #4A5D23;
 }
 
 .market-card.highlight p {
-    color: #3b82f6;
+    color: #6B7F39;
 }
 
 /* Engagement Section */
@@ -676,42 +678,42 @@ section {
 }
 
 .tier-green {
-    background: #f0fdf4;
-    border-color: #bbf7d0;
+    background: #F5F6F0;
+    border-color: #C5CCAE;
 }
 
 .tier-green::before {
-    background: #22c55e;
+    background: #6B7F39;
 }
 
 .tier-green .tier-label {
-    color: #16a34a;
+    color: #4A5D23;
 }
 
 .tier-blue {
-    background: #eff6ff;
-    border-color: #bfdbfe;
+    background: #F7F6F2;
+    border-color: #D8CCBA;
 }
 
 .tier-blue::before {
-    background: #2563eb;
+    background: #8B7355;
 }
 
 .tier-blue .tier-label {
-    color: #2563eb;
+    color: #6B5840;
 }
 
 .tier-purple {
-    background: #faf5ff;
-    border-color: #e9d5ff;
+    background: #F2F4ED;
+    border-color: #D1D9C0;
 }
 
 .tier-purple::before {
-    background: #7c3aed;
+    background: #5F7A3E;
 }
 
 .tier-purple .tier-label {
-    color: #7c3aed;
+    color: #3E5129;
 }
 
 .tier-label {
