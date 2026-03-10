@@ -25,3 +25,9 @@ build/
 # Environment files
 .env
 .env.local
+
+# Content reference files (source materials, not for deployment)
+website/
+
+# Claude Code
+.claude/
