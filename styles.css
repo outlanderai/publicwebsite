@@ -1491,3 +1491,47 @@ section {
         gap: 2rem 1.5rem;
     }
 }
+
+/* iPhone / small mobile overrides — must come after all 991px blocks */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .outcomes-grid,
+    .focus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 1rem;
+    }
+
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .tiers-grid,
+    .markets-grid,
+    .engagements-list {
+        grid-template-columns: 1fr;
+    }
+
+    .founder-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .intelligence-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .ps-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
