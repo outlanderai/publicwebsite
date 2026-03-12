@@ -23,7 +23,12 @@ if (mobileMenuToggle) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (href === '#') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        const target = document.querySelector(href);
         if (target) {
             const navHeight = document.querySelector('.navbar').offsetHeight;
             const targetPosition = target.offsetTop - navHeight;
@@ -56,7 +61,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe service cards, step cards, etc.
-document.querySelectorAll('.service-card, .step-card, .tier-card, .market-card').forEach(el => {
+document.querySelectorAll('.service-card, .step-card, .tier-card, .market-card, .outcome-card, .focus-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
