@@ -59,7 +59,7 @@
 
     --accent-global:         var(--palette-primary);   /* buttons, links, borders site-wide */
     --accent-global-hover:   var(--palette-primary-dark);
-    --accent-dark-section:   var(--palette-sage);      /* accent color used inside dark sections */
+    --accent-dark-section:   #A3B18A;                  /* accent color used inside dark sections */
 
 
     /* ================================================================
@@ -71,7 +71,7 @@
     --color-olive:        var(--palette-primary);
     --color-olive-light:  var(--palette-primary-light);
     --color-olive-dark:   var(--palette-primary-dark);
-    --color-sage:         var(--palette-sage);
+    --color-sage:         var(--accent-dark-section);
     --color-moss:         var(--palette-moss);
     --color-earth:        var(--palette-earth);
     --color-clay:         #A0826D;
