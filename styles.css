@@ -19,9 +19,9 @@
     --palette-sage:          #A3B18A;   /* sage — accent on dark backgrounds */
     --palette-moss:          #5F7A3E;   /* moss green */
     --palette-earth:         #8B7355;   /* warm earth brown */
-    --palette-dark:          #2C3018;   /* near-black — dark section base */
-    --palette-dark-alt:      #3A4428;   /* slightly lighter dark */
-    --palette-dark-mid:      #2F3820;   /* dark section gradient end */
+    --palette-dark:          #1d2027;   /* dark charcoal-slate — dark section base */
+    --palette-dark-alt:      #252b36;   /* slightly lighter slate */
+    --palette-dark-mid:      #1a1e28;   /* dark section gradient end */
     --palette-light:         #F5F5ED;   /* off-white — light section bg */
     --palette-warm:          #EAE8DC;   /* warm off-white — hero gradient end */
     --palette-white:         #ffffff;
