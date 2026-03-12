@@ -1113,6 +1113,15 @@ section {
     font-weight: 600;
     color: var(--color-text-light);
     white-space: nowrap;
+    max-width: 100%;
+}
+
+@media (max-width: 767px) {
+    .credibility-statement {
+        white-space: normal;
+        text-align: center;
+        line-height: 1.6;
+    }
 }
 
 /* Outcomes credibility line */
