@@ -996,17 +996,22 @@ section {
     }
 
     .hero-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .contact-card {
         flex-direction: column;
         text-align: center;
         gap: 2rem;
+        padding: 2.5rem;
     }
 
     .contact-action {
         text-align: center;
+    }
+
+    .intelligence-content {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1039,23 +1044,100 @@ section {
     }
 
     .hero h1 {
-        font-size: 2.25rem;
+        font-size: 2rem;
+    }
+
+    .hero-subline {
+        font-size: 1rem;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .hero-cta {
         flex-direction: column;
     }
 
+    .hero-cta .btn-primary-large,
+    .hero-cta .btn-secondary {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem;
+    }
+
     section {
-        padding: 4rem 0;
+        padding: 3.5rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
     }
 
     .section-header h2 {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 2rem;
+    }
+
+    .step-card {
+        padding: 2rem;
+    }
+
+    .outcomes-grid,
+    .focus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .outcome-card {
+        padding: 1.5rem;
+    }
+
+    .focus-card {
+        padding: 1.5rem;
+    }
+
+    .example-card {
+        padding: 2rem;
+    }
+
+    .example-card h4 {
+        font-size: 1.2rem;
+    }
+
+    .contact-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .btn-contact {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .founder-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .founder-name {
+        font-size: 1.6rem;
     }
 
     .principles-grid {
@@ -1400,35 +1482,12 @@ section {
 /* Responsive updates for new sections */
 @media (max-width: 991px) {
     .outcomes-grid,
-    .focus-grid,
-    .example-grid {
+    .focus-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .metrics-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem 1.5rem;
-    }
-
-    .founder-card {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .outcomes-grid,
-    .focus-grid,
-    .example-grid,
-    .engagements-list {
-        grid-template-columns: 1fr;
-    }
-
-    .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .credibility-names {
-        font-size: 0.9rem;
     }
 }
