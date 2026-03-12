@@ -6,41 +6,102 @@
 }
 
 :root {
-    /* Colors - Olive Green Palette */
-    --color-primary: #6B7F39;
-    --color-olive: #6B7F39;
-    --color-olive-light: #8B9D5A;
-    --color-olive-dark: #4A5D23;
-    --color-sage: #A3B18A;
-    --color-moss: #5F7A3E;
-    --color-earth: #8B7355;
-    --color-clay: #A0826D;
-    --color-dark: #2C3018;
-    --color-dark-alt: #3A4428;
-    --color-light: #F5F5ED;
-    --color-white: #ffffff;
-    --color-text: #2C3018;
-    --color-text-light: #6B7566;
-    --color-border: #D4D9C8;
 
-    /* Gradients */
-    --gradient-dark: linear-gradient(165deg, #2C3018 0%, #3A4428 40%, #2F3820 100%);
-    --gradient-warm: linear-gradient(135deg, #F5F5ED 0%, #EAE8DC 100%);
+    /* ================================================================
+       PALETTE
+       Raw color values — change these to shift the whole site's mood.
+       All section and component colors derive from these.
+       ================================================================ */
 
-    /* Typography */
+    --palette-primary:       #6B7F39;   /* olive green — main accent */
+    --palette-primary-dark:  #4A5D23;   /* darker olive — hover states */
+    --palette-primary-light: #8B9D5A;   /* lighter olive */
+    --palette-sage:          #A3B18A;   /* sage — accent on dark backgrounds */
+    --palette-moss:          #5F7A3E;   /* moss green */
+    --palette-earth:         #8B7355;   /* warm earth brown */
+    --palette-dark:          #2C3018;   /* near-black — dark section base */
+    --palette-dark-alt:      #3A4428;   /* slightly lighter dark */
+    --palette-dark-mid:      #2F3820;   /* dark section gradient end */
+    --palette-light:         #F5F5ED;   /* off-white — light section bg */
+    --palette-warm:          #EAE8DC;   /* warm off-white — hero gradient end */
+    --palette-white:         #ffffff;
+    --palette-text:          #2C3018;   /* body text */
+    --palette-text-muted:    #6B7566;   /* secondary / caption text */
+    --palette-border:        #D4D9C8;   /* borders and dividers */
+
+
+    /* ================================================================
+       SECTION BACKGROUNDS
+       One variable per section — change any of these independently.
+       Values can be a hex color, CSS color name, or gradient.
+       ================================================================ */
+
+    --bg-nav:             var(--palette-white);
+    --bg-hero:            linear-gradient(135deg, var(--palette-light) 0%, var(--palette-warm) 100%);
+    --bg-credibility:     var(--palette-white);
+    --bg-outcomes:        var(--palette-light);
+    --bg-services:        var(--palette-light);
+    --bg-focus:           var(--palette-white);
+    --bg-process:         linear-gradient(165deg, var(--palette-dark) 0%, var(--palette-dark-alt) 40%, var(--palette-dark-mid) 100%);
+    --bg-example:         var(--palette-white);
+    --bg-team:            linear-gradient(165deg, var(--palette-dark) 0%, var(--palette-dark-alt) 40%, var(--palette-dark-mid) 100%);
+    --bg-operating-model: var(--palette-light);
+    --bg-principles:      var(--palette-white);
+    --bg-contact:         var(--palette-white);
+    --bg-contact-card:    linear-gradient(165deg, var(--palette-dark) 0%, var(--palette-dark-alt) 40%, var(--palette-dark-mid) 100%);
+    --bg-footer:          var(--palette-dark);
+
+
+    /* ================================================================
+       SECTION ACCENTS
+       Controls highlights, tags, left-borders, and key text per area.
+       ================================================================ */
+
+    --accent-global:         var(--palette-primary);   /* buttons, links, borders site-wide */
+    --accent-global-hover:   var(--palette-primary-dark);
+    --accent-dark-section:   var(--palette-sage);      /* accent color used inside dark sections */
+
+
+    /* ================================================================
+       LEGACY ALIASES
+       These keep existing CSS working — do not remove.
+       ================================================================ */
+
+    --color-primary:      var(--palette-primary);
+    --color-olive:        var(--palette-primary);
+    --color-olive-light:  var(--palette-primary-light);
+    --color-olive-dark:   var(--palette-primary-dark);
+    --color-sage:         var(--palette-sage);
+    --color-moss:         var(--palette-moss);
+    --color-earth:        var(--palette-earth);
+    --color-clay:         #A0826D;
+    --color-dark:         var(--palette-dark);
+    --color-dark-alt:     var(--palette-dark-alt);
+    --color-light:        var(--palette-light);
+    --color-white:        var(--palette-white);
+    --color-text:         var(--palette-text);
+    --color-text-light:   var(--palette-text-muted);
+    --color-border:       var(--palette-border);
+    --gradient-dark:      var(--bg-process);
+    --gradient-warm:      var(--bg-hero);
+
+
+    /* ================================================================
+       TYPOGRAPHY / SPACING / BORDERS
+       ================================================================ */
+
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-display: 'Playfair Display', Georgia, serif;
 
-    /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 6rem;
 
-    /* Borders */
-    --border-radius: 6px;
+    --border-radius:    6px;
     --border-radius-lg: 12px;
+
 }
 
 html {
@@ -70,7 +131,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: var(--color-white);
+    background: var(--bg-nav);
     z-index: 1000;
     border-bottom: 1px solid transparent;
     transition: all 0.3s ease;
@@ -203,7 +264,7 @@ body {
 /* Hero Section */
 .hero {
     padding: 10rem 0 6rem;
-    background: var(--gradient-warm);
+    background: var(--bg-hero);
     position: relative;
     overflow: hidden;
 }
@@ -326,7 +387,7 @@ section {
 
 /* Services Section */
 .services {
-    background: var(--color-light);
+    background: var(--bg-services);
 }
 
 .services-grid {
@@ -450,7 +511,7 @@ section {
 
 /* How It Works Section */
 .how-it-works {
-    background: var(--gradient-dark);
+    background: var(--bg-process);
     color: var(--color-white);
 }
 
@@ -749,7 +810,7 @@ section {
 
 /* Principles Section */
 .principles {
-    background: var(--color-white);
+    background: var(--bg-principles);
 }
 
 .principles-grid {
@@ -781,7 +842,7 @@ section {
 
 /* Team Section */
 .team {
-    background: var(--gradient-dark);
+    background: var(--bg-team);
     color: var(--color-white);
 }
 
@@ -876,12 +937,12 @@ section {
 
 /* Contact Section */
 .contact {
-    background: var(--color-white);
+    background: var(--bg-contact);
     padding: 4rem 0;
 }
 
 .contact-card {
-    background: var(--gradient-dark);
+    background: var(--bg-contact-card);
     padding: 3rem 4rem;
     border-radius: var(--border-radius-lg);
     display: flex;
@@ -915,7 +976,7 @@ section {
 
 /* Footer */
 .footer {
-    background: var(--color-dark);
+    background: var(--bg-footer);
     color: var(--color-white);
     padding: 4rem 0 2rem;
 }
@@ -1198,7 +1259,7 @@ section {
 
 /* Credibility Strip */
 .credibility {
-    background: var(--color-white);
+    background: var(--bg-credibility);
     padding: 1rem 0;
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
@@ -1234,7 +1295,7 @@ section {
 
 /* Shipped Outcomes */
 .outcomes {
-    background: var(--color-light);
+    background: var(--bg-outcomes);
 }
 
 .outcomes-grid {
@@ -1308,7 +1369,7 @@ section {
 
 /* Where We Focus */
 .focus {
-    background: var(--color-white);
+    background: var(--bg-focus);
 }
 
 .focus-grid {
@@ -1384,7 +1445,7 @@ section {
 
 /* Example Engagement */
 .example-engagement {
-    background: var(--color-white);
+    background: var(--bg-example);
 }
 
 .example-grid {
@@ -1499,7 +1560,7 @@ section {
 
 /* Operating Model Section */
 .operating-model {
-    background: var(--color-light);
+    background: var(--bg-operating-model);
 }
 
 .operating-model-content {
