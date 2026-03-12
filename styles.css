@@ -1490,6 +1490,65 @@ section {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem 1.5rem;
     }
+
+    .operating-model-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Operating Model Section */
+.operating-model {
+    background: var(--color-light);
+}
+
+.operating-model-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.operating-model-text p {
+    font-size: 1.05rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.network-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-bottom: 1.25rem;
+}
+
+.network-list {
+    list-style: none;
+    padding: 0;
+}
+
+.network-list li {
+    padding: 0.85rem 1rem 0.85rem 2.75rem;
+    position: relative;
+    font-weight: 500;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.95rem;
+}
+
+.network-list li:last-child {
+    border-bottom: none;
+}
+
+.network-list li::before {
+    content: '\2192';
+    position: absolute;
+    left: 1rem;
+    color: var(--color-primary);
+    font-weight: 700;
 }
 
 /* iPhone / small mobile overrides — must come after all 991px blocks */
@@ -1531,6 +1590,11 @@ section {
     }
 
     .ps-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .operating-model-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
