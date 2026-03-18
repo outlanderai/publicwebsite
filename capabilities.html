@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Outerland capabilities and case studies — AI-enabled execution across transformation, data, controls, and operational workflows.">
+    <title>Capabilities & Case Studies | Outerland</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /* ── Active nav state ─────────────────────────────────────────── */
+        .nav-links a.nav-active {
+            color: var(--palette-primary);
+            font-weight: 600;
+        }
+
+        /* ── Subpage header ───────────────────────────────────────────── */
+        .subpage-header {
+            padding: 7.5rem 0 2.5rem;
+            background: var(--palette-white);
+            border-bottom: 1px solid var(--palette-border);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.8rem;
+            color: var(--palette-text-muted);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .breadcrumb a {
+            color: var(--palette-text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--palette-primary);
+        }
+
+        .breadcrumb-sep {
+            opacity: 0.5;
+            font-size: 0.75rem;
+        }
+
+        .breadcrumb-current {
+            color: var(--palette-text);
+        }
+
+        .subpage-header h1 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--palette-dark);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .subpage-header-intro {
+            font-size: 1rem;
+            color: var(--palette-text-muted);
+            line-height: 1.7;
+            max-width: 580px;
+            margin-bottom: 2rem;
+        }
+
+        /* ── Section quick-jump pills ─────────────────────────────────── */
+        .jump-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .jump-pill {
+            display: inline-block;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--palette-text-muted);
+            background: var(--palette-light);
+            border: 1px solid var(--palette-border);
+            border-radius: 100px;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .jump-pill:hover {
+            background: var(--palette-white);
+            color: var(--palette-primary);
+            border-color: rgba(107, 127, 57, 0.35);
+        }
+
+        /* ── Capability sections ──────────────────────────────────────── */
+        .cap-section {
+            padding: 4rem 0;
+        }
+
+        .cap-section:nth-child(odd) {
+            background: var(--palette-light);
+        }
+
+        .cap-section:nth-child(even) {
+            background: var(--palette-white);
+        }
+
+        .cap-section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .cap-section-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--palette-primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cap-section-header h2 {
+            font-family: var(--font-display);
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--palette-dark);
+            line-height: 1.25;
+            margin-bottom: 0;
+        }
+
+        .cap-section-intro {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--palette-text-muted);
+            line-height: 1.65;
+            max-width: 560px;
+        }
+
+        /* ── Card grid ────────────────────────────────────────────────── */
+        .cap-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            align-items: stretch;
+        }
+
+        /* ── Capability card ──────────────────────────────────────────── */
+        .cap-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--palette-white);
+            border: 1px solid var(--palette-border);
+            border-radius: var(--border-radius-lg);
+            padding: 1.75rem 1.5rem 1.5rem;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cap-section:nth-child(odd) .cap-card {
+            background: var(--palette-white);
+        }
+
+        .cap-section:nth-child(even) .cap-card {
+            background: var(--palette-light);
+        }
+
+        /* Subtle olive top-bar reveal on hover */
+        .cap-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--palette-primary);
+            opacity: 0;
+            transition: opacity 0.22s ease;
+        }
+
+        .cap-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(44, 48, 24, 0.09);
+            border-color: rgba(107, 127, 57, 0.28);
+        }
+
+        .cap-card:hover::before {
+            opacity: 1;
+        }
+
+        .cap-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--palette-dark);
+            line-height: 1.35;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.01em;
+        }
+
+        .cap-card-desc {
+            font-size: 0.875rem;
+            color: var(--palette-text-muted);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 1.25rem;
+        }
+
+        .cap-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--palette-primary);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.18s ease;
+            margin-top: auto;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-family: var(--font-primary);
+        }
+
+        .cap-card-link::after {
+            content: '→';
+            transition: transform 0.18s ease;
+        }
+
+        .cap-card-link:hover {
+            color: var(--palette-primary-dark);
+        }
+
+        .cap-card-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* ── Email gate modal ─────────────────────────────────────────── */
+        .gate-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(29, 32, 39, 0.55);
+            backdrop-filter: blur(3px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .gate-modal-overlay.is-open {
+            display: flex;
+        }
+
+        .gate-modal {
+            background: var(--palette-white);
+            border-radius: var(--border-radius-lg);
+            padding: 2.25rem 2rem 2rem;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(29, 32, 39, 0.18);
+            position: relative;
+        }
+
+        .gate-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--palette-text-muted);
+            line-height: 1;
+            padding: 0.25rem 0.4rem;
+            border-radius: 4px;
+            transition: color 0.15s ease, background 0.15s ease;
+        }
+
+        .gate-modal-close:hover {
+            color: var(--palette-dark);
+            background: var(--palette-light);
+        }
+
+        .gate-modal-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--palette-primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .gate-modal h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--palette-dark);
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .gate-modal-subtitle {
+            font-size: 0.875rem;
+            color: var(--palette-text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .gate-modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .gate-modal-input {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            font-size: 0.9rem;
+            font-family: var(--font-primary);
+            border: 1.5px solid var(--palette-border);
+            border-radius: var(--border-radius);
+            color: var(--palette-dark);
+            background: var(--palette-white);
+            transition: border-color 0.18s ease;
+            box-sizing: border-box;
+        }
+
+        .gate-modal-input:focus {
+            outline: none;
+            border-color: var(--palette-primary);
+        }
+
+        .gate-modal-submit {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--palette-primary);
+            color: var(--palette-white);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: var(--font-primary);
+            cursor: pointer;
+            transition: background 0.18s ease;
+        }
+
+        .gate-modal-submit:hover:not(:disabled) {
+            background: var(--palette-primary-dark);
+        }
+
+        .gate-modal-submit:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .gate-modal-error {
+            font-size: 0.82rem;
+            color: #b91c1c;
+            display: none;
+        }
+
+        .gate-modal-success {
+            display: none;
+            text-align: center;
+            padding: 1rem 0 0.5rem;
+        }
+
+        .gate-modal-success p {
+            font-size: 0.95rem;
+            color: var(--palette-text-muted);
+            line-height: 1.6;
+        }
+
+        .gate-modal-success strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--palette-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        /* ── Slim subpage CTA ─────────────────────────────────────────── */
+        .subpage-cta {
+            padding: 3.5rem 0;
+            background: var(--palette-white);
+            border-top: 1px solid var(--palette-border);
+        }
+
+        .subpage-cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .subpage-cta-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--palette-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+
+        .subpage-cta-text p {
+            font-size: 0.9rem;
+            color: var(--palette-text-muted);
+            line-height: 1.65;
+            max-width: 480px;
+        }
+
+        .subpage-cta-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .subpage-cta-back {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--palette-text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .subpage-cta-back:hover {
+            color: var(--palette-primary);
+        }
+
+        /* ── Responsive ───────────────────────────────────────────────── */
+        @media (max-width: 1100px) {
+            .cap-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .subpage-cta-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .subpage-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .cap-section-header h2 {
+                font-size: 1.4rem;
+            }
+
+            .cap-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+            .cap-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .subpage-cta-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="logo">Outerland</a>
+                <div class="nav-links">
+                    <a href="/#services">Services</a>
+                    <a href="/capabilities.html" class="nav-active" aria-current="page">Capabilities</a>
+                    <a href="/#approach">Approach</a>
+                    <a href="/#founder">About</a>
+                    <a href="/#contact" class="btn-primary">Get in Touch</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Compact subpage header -->
+    <header class="subpage-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span class="breadcrumb-sep" aria-hidden="true">›</span>
+                <span class="breadcrumb-current">Capabilities</span>
+            </nav>
+            <h1>Case Studies &amp; Delivery Examples</h1>
+            <p class="subpage-header-intro">Selected examples of how Outerland helps clients connect systems, automate workflows, and strengthen execution.</p>
+            <nav class="jump-nav" aria-label="Jump to section">
+                <a href="#transformation" class="jump-pill">Transformation Delivery</a>
+                <a href="#data-tech" class="jump-pill">Data &amp; Technology</a>
+                <a href="#ai-governance" class="jump-pill">AI Governance &amp; Controls</a>
+                <a href="#finance-ops" class="jump-pill">Finance &amp; Operations</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECTION 1: Transformation Delivery -->
+    <section class="cap-section" id="transformation">
+        <div class="container">
+            <div class="cap-section-header">
+                <span class="cap-section-tag">Transformation Delivery</span>
+                <h2>Structured execution for complex programs</h2>
+            </div>
+            <div class="cap-grid" id="grid-transformation"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Data & Technology Modernization -->
+    <section class="cap-section" id="data-tech">
+        <div class="container">
+            <div class="cap-section-header">
+                <span class="cap-section-tag">Data &amp; Technology Modernization</span>
+                <h2>Modernizing systems without disrupting operations</h2>
+            </div>
+            <div class="cap-grid" id="grid-data-tech"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: AI Governance & Controls -->
+    <section class="cap-section" id="ai-governance">
+        <div class="container">
+            <div class="cap-section-header">
+                <span class="cap-section-tag">AI Governance &amp; Controls</span>
+                <h2>Defensible frameworks for AI in production</h2>
+            </div>
+            <div class="cap-grid" id="grid-ai-governance"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Finance & Operations Automation -->
+    <section class="cap-section" id="finance-ops">
+        <div class="container">
+            <div class="cap-section-header">
+                <span class="cap-section-tag">Finance &amp; Operations Automation</span>
+                <h2>Automating finance workflows across connected systems</h2>
+                <p class="cap-section-intro">Connecting disconnected systems to automate real-world finance workflows.</p>
+            </div>
+            <div class="cap-grid" id="grid-finance-ops"></div>
+        </div>
+    </section>
+
+    <!-- Slim subpage CTA -->
+    <section class="subpage-cta">
+        <div class="container">
+            <div class="subpage-cta-inner">
+                <div class="subpage-cta-text">
+                    <h3>Interested in a similar engagement?</h3>
+                    <p>We can help scope, prioritize, and deliver the right automation or transformation approach for your environment.</p>
+                </div>
+                <div class="subpage-cta-actions">
+                    <a href="mailto:hello@outerland.ai" class="btn-primary">Contact Outerland</a>
+                    <a href="/" class="subpage-cta-back">← Return to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">Outerland</div>
+                    <p>Technology change that actually works</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h5>Capabilities</h5>
+                        <a href="#transformation">Transformation Delivery</a>
+                        <a href="#data-tech">Data &amp; Technology</a>
+                        <a href="#ai-governance">AI Governance</a>
+                        <a href="#finance-ops">Finance &amp; Ops</a>
+                    </div>
+                    <div class="footer-column">
+                        <h5>Company</h5>
+                        <a href="/#approach">How We Work</a>
+                        <a href="/#founder">About</a>
+                        <a href="/#outcomes">Delivered Work</a>
+                        <a href="/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Outerland LLC. All rights reserved.</span>
+                <span>Enterprise Advisory &amp; Execution</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Email gate modal -->
+    <div class="gate-modal-overlay" id="gateModalOverlay" role="dialog" aria-modal="true" aria-labelledby="gateModalTitle">
+        <div class="gate-modal">
+            <button class="gate-modal-close" id="gateModalClose" aria-label="Close">&times;</button>
+            <div id="gateModalForm">
+                <p class="gate-modal-eyebrow">Case Study PDF</p>
+                <h3 id="gateModalTitle">Download the Case Study</h3>
+                <p class="gate-modal-subtitle">Enter your email to access the PDF. We'll send you the download link.</p>
+                <form class="gate-modal-form" id="gateForm" novalidate>
+                    <input
+                        type="email"
+                        class="gate-modal-input"
+                        id="gateEmailInput"
+                        placeholder="you@company.com"
+                        required
+                        autocomplete="email"
+                    />
+                    <p class="gate-modal-error" id="gateError"></p>
+                    <button type="submit" class="gate-modal-submit" id="gateSubmit">
+                        <span id="gateBtnText">Get the PDF</span>
+                        <span id="gateBtnLoading" style="display:none;">Sending&hellip;</span>
+                    </button>
+                </form>
+            </div>
+            <div class="gate-modal-success" id="gateSuccess">
+                <strong>Opening your PDF&hellip;</strong>
+                <p>If it doesn't open automatically, <a id="gateFallbackLink" href="#" style="color:var(--palette-primary);">click here</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // ── Capability data ──────────────────────────────────────────────
+        const capabilities = {
+            'grid-transformation': [
+                {
+                    title: 'Project Management as a Service',
+                    desc: 'Turnkey project governance with AI-assisted tracking, weekly updates, and consistent on-time delivery.',
+                    pdf: '01_Project_Management_as_a_Service.pdf',
+                },
+                {
+                    title: 'Business Analysis as a Service',
+                    desc: 'Clear requirements, process mapping, and documentation that reduce rework and accelerate execution.',
+                    pdf: '02_Business_Analysis_as_a_Service.pdf',
+                },
+                {
+                    title: 'M&A Integration Acceleration',
+                    desc: 'Faster Day 1 readiness and post-close execution with structured financial and operational integration.',
+                    pdf: '03_MA_Integration_Acceleration.pdf',
+                },
+                {
+                    title: 'IT Architecture & Automation Roadmaps',
+                    desc: 'Practical architecture and automation plans aligned to business goals and scalable operating models.',
+                    pdf: '04_IT_Architecture_Automation_Roadmaps.pdf',
+                },
+            ],
+            'grid-data-tech': [
+                {
+                    title: 'Legacy Code Modernization',
+                    desc: 'Modernize legacy systems with AI-assisted documentation and controlled rewrites that reduce risk and dependency on tribal knowledge.',
+                    pdf: '05_Legacy_Code_Modernization.pdf',
+                },
+                {
+                    title: 'Data Pipelines & Quality Automation',
+                    desc: 'Reliable pipelines for ingesting, validating, and monitoring data across fragmented systems.',
+                    pdf: '06_Data_Pipelines_Quality_Automation.pdf',
+                },
+                {
+                    title: 'Microsoft 365 Workflow Automation',
+                    desc: 'Automate approvals, reporting, and workflows across Outlook, Excel, Teams, and SharePoint to reduce manual work.',
+                    pdf: '07_Microsoft_365_Workflow_Automation.pdf',
+                },
+            ],
+            'grid-ai-governance': [
+                {
+                    title: 'Agentic Trust Automation',
+                    desc: 'Independent validation layers that ensure AI and automated workflows operate within defined control boundaries.',
+                    pdf: '08_Agentic_Trust_Automation.pdf',
+                },
+                {
+                    title: 'AI Controls, Model Risk & Audit Automation',
+                    desc: 'Operationalize AI governance with monitoring, auditability, and defensible control frameworks.',
+                    pdf: '09_AI_Controls_Model_Risk_Audit.pdf',
+                },
+                {
+                    title: 'ICFR, SOX & Compliance Automation',
+                    desc: 'Automate controls documentation and evidence workflows to reduce manual effort and improve audit readiness.',
+                    pdf: '10_ICFR_SOX_Compliance_Automation.pdf',
+                },
+            ],
+            'grid-finance-ops': [
+                {
+                    title: 'Finance & Controllership Workflow Automation',
+                    desc: 'Streamline close, reporting, and reconciliations by connecting workflows across finance systems.',
+                    pdf: '11_Finance_Controllership_Workflow.pdf',
+                },
+                {
+                    title: 'Source-to-Pay Design & Automation',
+                    desc: 'Automate procurement-to-payment workflows across disconnected systems with embedded controls.',
+                    pdf: '12_Source_to_Pay_Automation.pdf',
+                },
+                {
+                    title: 'Vendor Lifecycle & Third-Party Risk Automation',
+                    desc: 'Integrate onboarding, due diligence, and monitoring workflows across systems into a single process.',
+                    pdf: '13_Vendor_Lifecycle_Third_Party_Risk.pdf',
+                },
+                {
+                    title: 'T&E, AP & Policy Enforcement Automation',
+                    desc: 'Enforce policy and automate expenses and payables across fragmented systems with full auditability.',
+                    pdf: '14_TE_AP_Policy_Enforcement.pdf',
+                },
+            ],
+        };
+
+        // ── Render cards ─────────────────────────────────────────────────
+        function renderCards() {
+            Object.entries(capabilities).forEach(([gridId, cards]) => {
+                const grid = document.getElementById(gridId);
+                if (!grid) return;
+                cards.forEach(card => {
+                    const article = document.createElement('article');
+                    article.className = 'cap-card';
+                    article.innerHTML = `
+                        <h3 class="cap-card-title">${card.title}</h3>
+                        <p class="cap-card-desc">${card.desc}</p>
+                        <button class="cap-card-link" data-pdf="${card.pdf}" data-title="${card.title}">View case study</button>
+                    `;
+                    grid.appendChild(article);
+                });
+            });
+        }
+
+        renderCards();
+
+        // ── Email gate modal ──────────────────────────────────────────────
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby1M2TZIPitTuF42yRlhLmOHJksiRpJTbFbwz8NE6bu1-5graX28zqulXNQeYZbUJ7UOA/exec';
+        const PDF_BASE_PATH = '/case-studies/';
+
+        const overlay    = document.getElementById('gateModalOverlay');
+        const closeBtn   = document.getElementById('gateModalClose');
+        const modalTitle = document.getElementById('gateModalTitle');
+        const gateForm   = document.getElementById('gateForm');
+        const emailInput = document.getElementById('gateEmailInput');
+        const submitBtn  = document.getElementById('gateSubmit');
+        const btnText    = document.getElementById('gateBtnText');
+        const btnLoading = document.getElementById('gateBtnLoading');
+        const errorEl    = document.getElementById('gateError');
+        const formWrap   = document.getElementById('gateModalForm');
+        const successEl  = document.getElementById('gateSuccess');
+        const fallbackLink = document.getElementById('gateFallbackLink');
+
+        let activePdf = '';
+
+        // Open modal when a card's "View case study" button is clicked
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('[data-pdf]');
+            if (!btn) return;
+            activePdf = btn.getAttribute('data-pdf');
+            const title = btn.getAttribute('data-title') || 'Case Study';
+            // Reset modal state
+            formWrap.style.display = '';
+            successEl.style.display = 'none';
+            gateForm.reset();
+            errorEl.style.display = 'none';
+            errorEl.textContent = '';
+            submitBtn.disabled = false;
+            btnText.style.display = '';
+            btnLoading.style.display = 'none';
+            modalTitle.textContent = title;
+            overlay.classList.add('is-open');
+            setTimeout(() => emailInput.focus(), 50);
+        });
+
+        function closeModal() {
+            overlay.classList.remove('is-open');
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        gateForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            submitBtn.disabled = true;
+            errorEl.style.display = 'none';
+
+            try {
+                const response = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        email: email,
+                        pdf: activePdf,
+                        source: window.location.href
+                    })
+                });
+                const result = await response.json();
+
+                if (result.result === 'success') {
+                    const pdfUrl = PDF_BASE_PATH + activePdf;
+                    formWrap.style.display = 'none';
+                    fallbackLink.href = pdfUrl;
+                    successEl.style.display = 'block';
+                    // Redirect to PDF
+                    window.location.href = pdfUrl;
+                } else {
+                    throw new Error(result.message || 'Submission failed');
+                }
+            } catch (err) {
+                errorEl.textContent = 'Something went wrong. Please try again.';
+                errorEl.style.display = 'block';
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        });
+
+        // ── Fade-in scroll animation ──────────────────────────────────────
+        const capObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    capObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        setTimeout(() => {
+            document.querySelectorAll('.cap-card').forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(16px)';
+                el.style.transition = `opacity 0.45s ease ${i * 0.04}s, transform 0.45s ease ${i * 0.04}s`;
+                capObserver.observe(el);
+            });
+        }, 0);
+
+        // ── Smooth scroll for jump-nav pills ─────────────────────────────
+        document.querySelectorAll('.jump-pill').forEach(pill => {
+            pill.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    window.scrollTo({ top: target.offsetTop - navHeight - 16, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

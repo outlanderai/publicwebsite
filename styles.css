@@ -396,6 +396,25 @@ section {
     gap: 2rem;
 }
 
+.services-link-row {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.services-capabilities-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease;
+}
+
+.services-capabilities-link:hover {
+    color: var(--color-olive-dark);
+}
+
 .service-card {
     padding: 2.5rem;
     border-radius: var(--border-radius-lg);
