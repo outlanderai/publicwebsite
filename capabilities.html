@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Outerland Capabilities & Case Studies — AI-enabled execution across transformation, data, controls, and operational workflows.">
+    <title>Capabilities & Case Studies | Outerland</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ─── Page-level hero override (lighter, warm gradient) ─── */
+        .cap-hero {
+            padding: 10rem 0 6rem;
+            background: var(--bg-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cap-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(107, 127, 57, 0.10) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cap-hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+        }
+
+        .cap-hero-eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--palette-text-muted);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .cap-hero h1 {
+            font-family: var(--font-display);
+            font-size: 3.75rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--palette-dark);
+            margin-bottom: 1.25rem;
+        }
+
+        .cap-hero h1 em {
+            font-style: italic;
+            color: var(--palette-primary);
+        }
+
+        .cap-hero-headline {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--palette-text);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            max-width: 680px;
+        }
+
+        .cap-hero-intro {
+            font-size: 1.05rem;
+            color: var(--palette-text-muted);
+            line-height: 1.75;
+            max-width: 680px;
+        }
+
+        /* ─── Capability Sections ─── */
+        .cap-section {
+            padding: 5rem 0;
+        }
+
+        .cap-section:nth-child(odd) {
+            background: var(--palette-light);
+        }
+
+        .cap-section:nth-child(even) {
+            background: var(--palette-white);
+        }
+
+        .cap-section-header {
+            margin-bottom: 3rem;
+        }
+
+        .cap-section-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--palette-primary);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .cap-section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--palette-dark);
+            line-height: 1.25;
+            margin-bottom: 0;
+        }
+
+        .cap-section-intro {
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--palette-text-muted);
+            line-height: 1.65;
+            max-width: 600px;
+        }
+
+        /* ─── Card Grid ─── */
+        .cap-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        /* ─── Capability Card ─── */
+        .cap-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--palette-white);
+            border: 1px solid var(--palette-border);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem 1.75rem 1.75rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            position: relative;
+        }
+
+        /* Cards inside a light-bg section get a slightly warmer bg */
+        .cap-section:nth-child(odd) .cap-card {
+            background: var(--palette-white);
+        }
+
+        .cap-section:nth-child(even) .cap-card {
+            background: var(--palette-light);
+            border-color: var(--palette-border);
+        }
+
+        .cap-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--palette-primary);
+            border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .cap-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(44, 48, 24, 0.10);
+            border-color: rgba(107, 127, 57, 0.30);
+        }
+
+        .cap-card:hover::before {
+            opacity: 1;
+        }
+
+        .cap-card-title {
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--palette-dark);
+            line-height: 1.35;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .cap-card-desc {
+            font-size: 0.9rem;
+            color: var(--palette-text-muted);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .cap-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--palette-primary);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.2s ease, gap 0.2s ease;
+            margin-top: auto;
+        }
+
+        .cap-card-link::after {
+            content: '→';
+            font-size: 0.9rem;
+            transition: transform 0.2s ease;
+        }
+
+        .cap-card-link:hover {
+            color: var(--palette-primary-dark);
+        }
+
+        .cap-card-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 1100px) {
+            .cap-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .cap-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cap-hero-headline {
+                font-size: 1.05rem;
+            }
+
+            .cap-section-header h2 {
+                font-size: 1.65rem;
+            }
+
+            .cap-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+            .cap-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cap-hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ─── Footer nav link for capabilities page ─── */
+        .footer-column a[aria-current="page"] {
+            color: var(--palette-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="logo">Outerland</a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/#services">Services</a>
+                    <a href="/#approach">Approach</a>
+                    <a href="/#founder">About</a>
+                    <a href="/#contact" class="btn-primary">Get in Touch</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="cap-hero">
+        <div class="container">
+            <div class="cap-hero-inner">
+                <span class="cap-hero-eyebrow">Capabilities &amp; Case Studies</span>
+                <h1>Execution that connects systems,<br>enforces controls, and moves<br><em>critical work forward.</em></h1>
+                <p class="cap-hero-headline">
+                    Outerland delivers practical, AI-enabled execution across transformation, data, controls, and operational workflows.
+                </p>
+                <p class="cap-hero-intro">
+                    We specialize in connecting disconnected systems to automate real-world processes, bringing structure, visibility, and control to complex environments.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: Transformation Delivery -->
+    <section class="cap-section" id="transformation">
+        <div class="container">
+            <div class="cap-section-header">
+                <span class="cap-section-tag">Transformation Delivery</span>
+                <h2>Structured execution<br>for complex programs</h2>
+            </div>
+            <div class="cap-grid" id="grid-transformation"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Data & Technology Modernization -->
+    <section class="cap-section" id="data-tech">
+        <div class="container">
+            <div class="cap-section-header">
+                <span class="cap-section-tag">Data &amp; Technology Modernization</span>
+                <h2>Modernizing systems<br>without disrupting operations</h2>
+            </div>
+            <div class="cap-grid" id="grid-data-tech"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: AI Governance & Controls -->
+    <section class="cap-section" id="ai-governance">
+        <div class="container">
+            <div class="cap-section-header">
+                <span class="cap-section-tag">AI Governance &amp; Controls</span>
+                <h2>Defensible frameworks<br>for AI in production</h2>
+            </div>
+            <div class="cap-grid" id="grid-ai-governance"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Finance & Operations Automation -->
+    <section class="cap-section" id="finance-ops">
+        <div class="container">
+            <div class="cap-section-header">
+                <span class="cap-section-tag">Finance &amp; Operations Automation</span>
+                <h2>Automating finance workflows<br>across connected systems</h2>
+                <p class="cap-section-intro">Connecting disconnected systems to automate real-world finance workflows.</p>
+            </div>
+            <div class="cap-grid" id="grid-finance-ops"></div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-content">
+                    <h3>If you're working on a transformation that needs to actually work, we should talk.</h3>
+                    <p>30-minute intro call. We'll quickly tell you if we're the right fit, and if not, point you in the right direction.</p>
+                </div>
+                <div class="contact-action">
+                    <a href="mailto:hello@outerland.ai" class="btn-contact">Schedule a Conversation</a>
+                    <div class="contact-email">hello@outerland.ai</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">Outerland</div>
+                    <p>Technology change that actually works</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h5>Capabilities</h5>
+                        <a href="#transformation">Transformation Delivery</a>
+                        <a href="#data-tech">Data &amp; Technology</a>
+                        <a href="#ai-governance">AI Governance</a>
+                        <a href="#finance-ops">Finance &amp; Ops</a>
+                    </div>
+                    <div class="footer-column">
+                        <h5>Company</h5>
+                        <a href="/#approach">How We Work</a>
+                        <a href="/#founder">About</a>
+                        <a href="/#outcomes">Delivered Work</a>
+                        <a href="/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Outerland LLC. All rights reserved.</span>
+                <span>Enterprise Advisory &amp; Execution</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // ── Capability data ──────────────────────────────────────────────
+        const capabilities = {
+            'grid-transformation': [
+                {
+                    title: 'Project Management as a Service',
+                    desc: 'Turnkey project governance with AI-assisted tracking, weekly updates, and consistent on-time delivery.',
+                },
+                {
+                    title: 'Business Analysis as a Service',
+                    desc: 'Clear requirements, process mapping, and documentation that reduce rework and accelerate execution.',
+                },
+                {
+                    title: 'M&A Integration Acceleration',
+                    desc: 'Faster Day 1 readiness and post-close execution with structured financial and operational integration.',
+                },
+                {
+                    title: 'IT Architecture & Automation Roadmaps',
+                    desc: 'Practical architecture and automation plans aligned to business goals and scalable operating models.',
+                },
+            ],
+            'grid-data-tech': [
+                {
+                    title: 'Legacy Code Modernization',
+                    desc: 'Modernize legacy systems with AI-assisted documentation and controlled rewrites that reduce risk and dependency on tribal knowledge.',
+                },
+                {
+                    title: 'Data Pipelines & Quality Automation',
+                    desc: 'Reliable pipelines for ingesting, validating, and monitoring data across fragmented systems.',
+                },
+                {
+                    title: 'Microsoft 365 Workflow Automation',
+                    desc: 'Automate approvals, reporting, and workflows across Outlook, Excel, Teams, and SharePoint to reduce manual work.',
+                },
+            ],
+            'grid-ai-governance': [
+                {
+                    title: 'Agentic Trust Automation',
+                    desc: 'Independent validation layers that ensure AI and automated workflows operate within defined control boundaries.',
+                },
+                {
+                    title: 'AI Controls, Model Risk & Audit Automation',
+                    desc: 'Operationalize AI governance with monitoring, auditability, and defensible control frameworks.',
+                },
+                {
+                    title: 'ICFR, SOX & Compliance Automation',
+                    desc: 'Automate controls documentation and evidence workflows to reduce manual effort and improve audit readiness.',
+                },
+            ],
+            'grid-finance-ops': [
+                {
+                    title: 'Finance & Controllership Workflow Automation',
+                    desc: 'Streamline close, reporting, and reconciliations by connecting workflows across finance systems.',
+                },
+                {
+                    title: 'Source-to-Pay Design & Automation',
+                    desc: 'Automate procurement-to-payment workflows across disconnected systems with embedded controls.',
+                },
+                {
+                    title: 'Vendor Lifecycle & Third-Party Risk Automation',
+                    desc: 'Integrate onboarding, due diligence, and monitoring workflows across systems into a single process.',
+                },
+                {
+                    title: 'T&E, AP & Policy Enforcement Automation',
+                    desc: 'Enforce policy and automate expenses and payables across fragmented systems with full auditability.',
+                },
+            ],
+        };
+
+        // ── Render cards ─────────────────────────────────────────────────
+        function renderCards() {
+            Object.entries(capabilities).forEach(([gridId, cards]) => {
+                const grid = document.getElementById(gridId);
+                if (!grid) return;
+
+                cards.forEach(card => {
+                    const article = document.createElement('article');
+                    article.className = 'cap-card';
+                    article.innerHTML = `
+                        <h3 class="cap-card-title">${card.title}</h3>
+                        <p class="cap-card-desc">${card.desc}</p>
+                        <a href="/" class="cap-card-link">View case study</a>
+                    `;
+                    grid.appendChild(article);
+                });
+            });
+        }
+
+        renderCards();
+
+        // ── Fade-in animation for capability cards ────────────────────────
+        const capObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    capObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        // Observe after render (next tick)
+        setTimeout(() => {
+            document.querySelectorAll('.cap-card').forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `opacity 0.5s ease ${i * 0.05}s, transform 0.5s ease ${i * 0.05}s`;
+                capObserver.observe(el);
+            });
+        }, 0);
+    </script>
+</body>
+</html>
